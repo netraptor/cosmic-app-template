@@ -3,14 +3,13 @@ cargo_generate_version = ">=0.22.0"
 
 [hooks]
 pre = [
-    "placeholder-defaults.rhai",
-    "rename-ftl.rhai",
     "ask-license.rhai",
+    "rename-ftl.rhai",
     "rename-readme.rhai",
 ]
 
 [placeholders]
-project-pretty-name = { prompt = "Enter a user-facing name for the project:", type = "string" }
-appid = { prompt = "Enter an app id (using reverse-DNS notation):", type = "string" }
-repository = { prompt = "Enter the url link to the project repository:", type = "string" }
-proj-description = { prompt = "Enter a short one-line description of this app:", type = "text" }
+project-pretty-name = { prompt = "Enter a user-facing name for the project", type = "string" }
+appid = { prompt = "Enter an app id (using reverse-DNS notation)", type = "string" }
+repository = { prompt = "Enter the url link to the project repository", type = "string" }
+proj-description = { prompt = "Enter a short one-line description of this app", type = "string" }
