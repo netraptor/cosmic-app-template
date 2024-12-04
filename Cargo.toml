@@ -40,8 +40,8 @@ features = [
     "wgpu",
 ]
 
-# For OSes other than Linux, any feature pulling in Wayland dependencies 
-# must be turned off
+# For OSes other than Linux, any feature pulling in Wayland or
+# other Linux-only dependencies must be turned off
 [target.'cfg(not(target_os = "linux"))'.dependencies.libcosmic]
 git = "https://github.com/pop-os/libcosmic.git"
 features = [
