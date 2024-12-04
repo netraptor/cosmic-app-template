@@ -1,5 +1,5 @@
-name := 'cosmic-app-template'
-appid := 'com.example.CosmicAppTemplate'
+name := '{{project-name}}'
+appid := '{{appid}}'
 
 rootdir := ''
 prefix := '/usr'

@@ -1,7 +1,11 @@
 [package]
-name = "cosmic-app-template"
+name = "{{project-name}}"
 version = "0.1.0"
+authors = ["{{authors}}"]
+license = "{{license}}"
 edition = "2021"
+repository = "{{repository}}"
+description = "{{proj-description}}"
 
 [dependencies]
 futures-util = "0.3.31"
@@ -14,7 +18,7 @@ tokio = { version = "1.41.0", features = ["full"] }
 version = "0.15"
 features = ["fluent-system", "desktop-requester"]
 
-[dependencies.libcosmic]
+[target.'cfg(target_os = "linux")'.dependencies.libcosmic]
 git = "https://github.com/pop-os/libcosmic.git"
 # See https://github.com/pop-os/libcosmic/blob/master/Cargo.toml for available features.
 features = [
@@ -36,8 +40,15 @@ features = [
     "wgpu",
 ]
 
-# Uncomment to test a locally-cloned libcosmic
-# [patch.'https://github.com/pop-os/libcosmic']
-# libcosmic = { path = "../libcosmic" }
-# cosmic-config = { path = "../libcosmic/cosmic-config" }
-# cosmic-theme = { path = "../libcosmic/cosmic-theme" }
+# For OSes other than Linux, any feature pulling in Wayland dependencies 
+# must be turned off
+[target.'cfg(not(target_os = "linux"))'.dependencies.libcosmic]
+git = "https://github.com/pop-os/libcosmic.git"
+features = [
+    "a11y",
+    "multi-window",
+    "single-instance",
+    "tokio",
+    "winit",
+    "wgpu",
+]
