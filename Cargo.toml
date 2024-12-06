@@ -40,12 +40,14 @@ features = [
     "wgpu",
 ]
 
-# For OSes other than Linux, any feature pulling in Wayland or
-# other Linux-only dependencies must be turned off
+# For OSes other than Linux, the following features must be turned off:
+# - xdg-portal
+# - wayland
 [target.'cfg(not(target_os = "linux"))'.dependencies.libcosmic]
 git = "https://github.com/pop-os/libcosmic.git"
 features = [
     "a11y",
+    "dbus-config",
     "multi-window",
     "single-instance",
     "tokio",
